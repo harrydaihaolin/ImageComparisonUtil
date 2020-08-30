@@ -1,0 +1,8 @@
+Image1,Image2,Similar,Elapsed
+/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/ba.jpg,/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/ab.jpg
+/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/aa.jpg,/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/ab.jpg,0.01,2.07
+/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/ac.jpg,/Users/haolindai/eclipse-workspace/imageCompare/src/main/resources/ac.gif
+sources/ac.gif
+
+
+
