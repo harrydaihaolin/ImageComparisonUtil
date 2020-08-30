@@ -198,29 +198,4 @@ public class CSVUtil {
         LOGGER.info("current row being added: " + row);
         writeCSVRecords(row, similar, elapsed, csvPath);
     }
-
-    /**
-     * Remove the similarity points and fill it with -1.0
-     *
-     * @param row the row of the record
-     * @param csvPath the absolute path of the csv file
-     */
-    public static void removeSimilarityRecords(int row, String csvPath) {
-        LOGGER.info("current row: " + row);
-        // remove the similarity score
-        writeCSVRecords(row, "-1.0", getCSVRecords(csvPath).get(row).get(2), csvPath);
-        LOGGER.info("similarity points are removed");
-    }
-
-    /**
-     * Remove the elapsed records and fill it with -1.0
-     *
-     * @param row the row of the record
-     * @param csvPath the absolute path of the csv file
-     */
-    public static void removeElapsedRecords(int row, String csvPath) {
-        LOGGER.info("current row: " + row);
-        // remove the elapsed score
-        writeCSVRecords(row, getCSVRecords(csvPath).get(row).get(1), "-1.0", csvPath);
-    }
 }

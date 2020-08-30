@@ -8,6 +8,7 @@ public class CSVTest {
 
     private static final String SAMPLE_CSV_FILE_PATH = "./src/main/resources/image.csv";
     private static final String WRONG_SAMPLE_CSV_FILE_PATH = "./src/main/resources/image.cs";
+    private static final int ROW = 5;
 
     @Test
     public void imageNameTest() {
@@ -24,28 +25,23 @@ public class CSVTest {
     }
 
     @Test
-    public void similarBeforeAddedTest() {
-        String actualCase = CSVUtil.getHeaderName(CSVUtil.SIMILAR, SAMPLE_CSV_FILE_PATH);
-        String expectedCase = "There hasn't been any similar scores calculated.";
-        Assert.assertEquals(actualCase, expectedCase);
-    }
-
-    @Test
     public void similarityUtilTest() {
         double scores = SimilarityUtil.compareImages(1, SAMPLE_CSV_FILE_PATH);
         Assert.assertTrue(Double.isFinite(scores));
     }
 
     @Test
-    public void AfterAddedTest() {
-        ElapsedUtil.start();
-        double scores = SimilarityUtil.compareImages(2, SAMPLE_CSV_FILE_PATH);
-        ElapsedUtil.end();
-        CSVUtil.addRecords(2, String.format("%.2f", scores), String.valueOf(ElapsedUtil.getElapsedTime()), SAMPLE_CSV_FILE_PATH);
-        String similar = CSVUtil.getSimilar(2, SAMPLE_CSV_FILE_PATH);
-        String elapsed = CSVUtil.getElapsed(2, SAMPLE_CSV_FILE_PATH);
-        Assert.assertFalse(similar.isEmpty());
-        Assert.assertFalse(elapsed.isEmpty());
+    public void afterAddedTest() {
+        for(int i = 1; i < ROW; i++) {
+            ElapsedUtil.start();
+            double scores = SimilarityUtil.compareImages(i, SAMPLE_CSV_FILE_PATH);
+            ElapsedUtil.end();
+            CSVUtil.addRecords(i, String.format("%.2f", scores), String.valueOf(ElapsedUtil.getElapsedTime()), SAMPLE_CSV_FILE_PATH);
+            String similar = CSVUtil.getSimilar(i, SAMPLE_CSV_FILE_PATH);
+            String elapsed = CSVUtil.getElapsed(i, SAMPLE_CSV_FILE_PATH);
+            Assert.assertFalse(similar.isEmpty());
+            Assert.assertFalse(elapsed.isEmpty());
+        }
     }
 
 }
