@@ -173,8 +173,6 @@ public class CSVUtil {
             // writing the records exclusively
             for(int i = 1; i < csvRecords.size(); i++) {
                 CSVRecord currentRow = csvRecords.get(row);
-                CSVRecord otherRow = csvRecords.get(i);
-                int size = csvRecords.get(i).size();
                 if (i == row) {
                     csvPrinter.printRecord(currentRow.get(0), currentRow.get(1), similar, elapsed);
                 } else {
@@ -194,7 +192,6 @@ public class CSVUtil {
      * @param csvPath the absolute path of the csv file
      */
     public static void addRecords(int row, String similar, String elapsed, String csvPath) {
-        List<CSVRecord> csvRecordList = getCSVRecords(csvPath);
         LOGGER.info("current row being added: " + row);
         writeCSVRecords(row, similar, elapsed, csvPath);
     }

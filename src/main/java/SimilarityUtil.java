@@ -1,4 +1,3 @@
-import org.opencv.core.Mat;
 import org.sikuli.script.Finder;
 import org.sikuli.script.Match;
 import org.sikuli.script.Pattern;

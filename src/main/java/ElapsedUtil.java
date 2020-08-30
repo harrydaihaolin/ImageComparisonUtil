@@ -7,6 +7,7 @@ public class ElapsedUtil {
     private static double endTime = 0.0;
     private static double elapsedTime = 0.0;
 
+
     public static void start() {
         startTime = System.currentTimeMillis();
         LOGGER.info("elapsed time calculator starts at " + startTime);
