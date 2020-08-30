@@ -2,6 +2,8 @@
 
 ## Development Guide
 
+Please change the absolute path of the sample csv file first.
+
 use `mvn clean install` to install the program
 
 Please refer to the java-doc and the test cases to understand
